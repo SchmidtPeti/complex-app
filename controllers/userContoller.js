@@ -5,5 +5,10 @@ exports.home = (req,res) => {
 }
 exports.register = (req,res) => {
     let user = new User(req.body);
-    res.send("Tahnks for trying to register!");
+    user.register();
+    if(user.errors.length){
+        res.send(user.errors);
+    } else {
+        res.send("Congrats, there are no errors.");
+    }
 }
