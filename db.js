@@ -7,5 +7,5 @@ const connectionString = process.env.mongodbString;
 mongodb.connect(connectionString,{ useUnifiedTopology: true,useNewUrlParser : true },function (err,client) {
     module.exports = client.db();
     const app = require('./app');
-    app.listen(3000);
+    app.listen(process.env.PORT);
 });
